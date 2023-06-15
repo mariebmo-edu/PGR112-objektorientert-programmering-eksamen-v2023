@@ -30,4 +30,13 @@ public class EventRegistration {
     public Person getPerson() {
         return person;
     }
+
+    @Override
+    public String toString() {
+        return "EventRegistration{" +
+                "id=" + id +
+                ", event=" + event +
+                ", person=" + person +
+                '}';
+    }
 }

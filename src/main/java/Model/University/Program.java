@@ -20,4 +20,12 @@ public class Program {
     public String getProgramName() {
         return programName;
     }
+
+    @Override
+    public String toString() {
+        return "Program{" +
+                "id=" + id +
+                ", programName='" + programName + '\'' +
+                '}';
+    }
 }

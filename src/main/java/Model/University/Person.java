@@ -35,4 +35,13 @@ public abstract class Person {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", role=" + role +
+                '}';
+    }
 }
