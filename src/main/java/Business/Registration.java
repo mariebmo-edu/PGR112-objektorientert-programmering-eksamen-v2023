@@ -55,7 +55,7 @@ public class Registration {
         initialize();
     }
 
-    public void initialize() throws Exception {
+    private void initialize() throws Exception {
         people.addAll(guestRepo.getAll());
         people.addAll(staffRepo.getAll());
         people.addAll(studentRepo.getAll());
@@ -70,7 +70,7 @@ public class Registration {
         programs.addAll(programRepo.getAll());
     }
 
-    public void logIn(Scanner scanner){
+    private void logIn(Scanner scanner){
         System.out.println("Please log in to continue.");
 
         System.out.println("Enter your name:");
@@ -93,7 +93,7 @@ public class Registration {
         }
     }
 
-    public void printMenu(){
+    private void printMenu(){
         System.out.println("1. Attend an event");
         System.out.println("2. Invite guests");
         System.out.println("3. Unregister from an event");
@@ -105,7 +105,7 @@ public class Registration {
         System.out.println("Q. Quit");
     }
 
-    public void handleMenu(Scanner scanner){
+    private void handleMenu(Scanner scanner){
 
         String input = "";
         while(!input.equalsIgnoreCase("Q")){
@@ -165,11 +165,11 @@ public class Registration {
         }
     }
 
-    public ArrayList<String> getEventNames(ArrayList<Event> events){
+    private ArrayList<String> getEventNames(ArrayList<Event> events){
         return events.stream().map(Event::getName).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public void attendEvent(Scanner scanner){
+    private void attendEvent(Scanner scanner){
         System.out.println("Enter the name of the event you would like to attend:");
         //only show events that user is not already registered for
         ArrayList<Event> validEvents = new ArrayList<>();
@@ -206,7 +206,7 @@ public class Registration {
     }
 
 
-    public void inviteGuest(Scanner scanner){
+    private void inviteGuest(Scanner scanner){
         System.out.println("Which event would you like to invite guests to?");
         //only show events that user is registered for
         ArrayList<Event> validEvents = new ArrayList<>();
@@ -287,7 +287,7 @@ public class Registration {
 
 
 
-    public void printAll() {
+    private void printAll() {
         System.out.println("People:");
         for (Person person : people) {
             System.out.println(person);
