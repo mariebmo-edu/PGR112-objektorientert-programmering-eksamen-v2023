@@ -10,17 +10,20 @@ import java.util.HashMap;
 public class GuestRepo extends AbstractUniversityPersonRepo<Guest>{
 
     RoleRepo roleRepo;
+    StudentRepo studentRepo;
 
-    public GuestRepo(RoleRepo roleRepo) throws IOException {
+    public GuestRepo(RoleRepo roleRepo, StudentRepo studentRepo) throws IOException {
         super("guest");
         this.roleRepo = roleRepo;
+        this.studentRepo = studentRepo;
     }
 
     @Override
     public Guest resultMapper(ResultSet resultSet) throws SQLException {
         return new Guest(
                 resultSet.getString("first_name"),
-                roleRepo.getById(resultSet.getInt("role_id"))
+                roleRepo.getById(resultSet.getInt("role_id")),
+                studentRepo.getById(resultSet.getInt("student_id"))
         );
     }
 
@@ -29,6 +32,7 @@ public class GuestRepo extends AbstractUniversityPersonRepo<Guest>{
         HashMap<String, Object> values = new HashMap<>();
         values.put("first_name", guest.getName());
         values.put("role_id", guest.getRole().getId());
+        values.put("student_id", guest.getStudent().getId());
 
         return values;
     }

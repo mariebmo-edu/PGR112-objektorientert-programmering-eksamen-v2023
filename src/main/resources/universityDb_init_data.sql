@@ -19,9 +19,9 @@ INSERT INTO staff(id, first_name, role_id) VALUES (2, 'Alice', 2);
 INSERT INTO staff(id, first_name, role_id) VALUES (3, 'Allistar', 2);
 INSERT INTO staff(id, first_name, role_id) VALUES (4, 'Amanda', 2);
 
-INSERT INTO guest(id, first_name, role_id) VALUES (1, 'Graham', 3);
-INSERT INTO guest(id, first_name, role_id) VALUES (2, 'Gloria', 3);
-INSERT INTO guest(id, first_name, role_id) VALUES (3, 'Gordon', 3);
-INSERT INTO guest(id, first_name, role_id) VALUES (4, 'Gina', 3);
+INSERT INTO guest(id, first_name, role_id, student_id) VALUES (1, 'Graham', 3, 1);
+INSERT INTO guest(id, first_name, role_id, student_id) VALUES (2, 'Gloria', 3, 1);
+INSERT INTO guest(id, first_name, role_id, student_id) VALUES (3, 'Gordon', 3, 4);
+INSERT INTO guest(id, first_name, role_id, student_id) VALUES (4, 'Gina', 3, 2);
 
 
