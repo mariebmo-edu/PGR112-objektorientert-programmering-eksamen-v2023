@@ -19,7 +19,7 @@ public class GuestRepo extends AbstractUniversityPersonRepo<Guest>{
     @Override
     public Guest resultMapper(ResultSet resultSet) throws SQLException {
         return new Guest(
-                resultSet.getString("name"),
+                resultSet.getString("first_name"),
                 roleRepo.getById(resultSet.getInt("role_id"))
         );
     }
@@ -27,8 +27,8 @@ public class GuestRepo extends AbstractUniversityPersonRepo<Guest>{
     @Override
     public HashMap<String, Object> modelValues(Guest guest) {
         HashMap<String, Object> values = new HashMap<>();
-        values.put("name", guest.getName());
-        values.put("roleType", guest.getRole().getRoleName());
+        values.put("first_name", guest.getName());
+        values.put("role_id", guest.getRole().getId());
 
         return values;
     }

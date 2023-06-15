@@ -19,7 +19,7 @@ public class StaffRepo extends AbstractUniversityPersonRepo<Staff>{
     @Override
     public Staff resultMapper(ResultSet resultSet) throws SQLException {
         return new Staff(
-                resultSet.getString("name"),
+                resultSet.getString("first_name"),
                 roleRepo.getById(resultSet.getInt("role_id"))
         );
     }
@@ -27,8 +27,8 @@ public class StaffRepo extends AbstractUniversityPersonRepo<Staff>{
     @Override
     public HashMap<String, Object> modelValues(Staff staff) {
         HashMap<String, Object> values = new HashMap<>();
-        values.put("name", staff.getName());
-        values.put("roleType", staff.getRole().getRoleName());
+        values.put("first_name", staff.getName());
+        values.put("role_id", staff.getRole().getId());
 
         return values;
     }

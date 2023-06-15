@@ -13,10 +13,12 @@ import java.util.HashMap;
 public class EventRegistrationRepo extends AbstractEventRepo<EventRegistration>{
 
     EventRepo eventRepo;
-    private AbstractUniversityPersonRepo<? extends Person> universityPersonRepo;
+    AbstractUniversityPersonRepo<? extends Person> universityPersonRepo;
 
     public EventRegistrationRepo(EventRepo eventRepo, AbstractUniversityPersonRepo<? extends Person> universityPersonRepo) throws IOException {
         super("event_registration");
+        this.eventRepo = eventRepo;
+        this.universityPersonRepo = universityPersonRepo;
     }
 
     @Override

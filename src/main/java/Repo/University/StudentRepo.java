@@ -22,7 +22,7 @@ public class StudentRepo extends AbstractUniversityPersonRepo<Student>{
     public Student resultMapper(ResultSet resultSet) throws SQLException {
         return new Student(
                 resultSet.getInt("id"),
-                resultSet.getString("name"),
+                resultSet.getString("first_name"),
                 roleRepo.getById(resultSet.getInt("role_id")),
                 programRepo.getById(resultSet.getInt("program_id"))
         );
@@ -31,9 +31,9 @@ public class StudentRepo extends AbstractUniversityPersonRepo<Student>{
     @Override
     public HashMap<String, Object> modelValues(Student student) {
         HashMap<String, Object> values = new HashMap<>();
-        values.put("name", student.getName());
-        values.put("role_name", student.getRole().getRoleName());
-        values.put("program_name", student.getProgram().getProgramName());
+        values.put("first_name", student.getName());
+        values.put("role_id", student.getRole().getId());
+        values.put("program_id", student.getProgram().getId());
 
         return values;
     }
